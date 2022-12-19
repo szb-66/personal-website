@@ -1,7 +1,5 @@
-# Vue 3 + Vite
+# 创建初衷
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
-
-## Recommended IDE Setup
-
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+最开始学习编程的目的是要更好地为设计服务。
+在产品开发的过程中，评审会议并不能讨论到细节性的东西，比如卡片之间的层叠关系，滚动时元素如何变化，界面怎么做自适应布局和响应式布局等。这也造成了实际与开发对接经常遇到设计稿已经完成，但有些小的细节并不能完全还原，这些细微并且不能更改的差距给后续的设计验收造成了很大的麻烦，需要标注区分哪些是开发需要改的，哪些是因为功能局限或者实现成本原因不能做的，花费很多不必浪费的时间和精力。
+创建个人网站算是对我当前阶段学习成果的总结
