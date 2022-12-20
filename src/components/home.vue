@@ -16,18 +16,18 @@
     </div>
     <div class="body">
         <Start></Start>
-        <div class="main">
+        <div class="main" id="show">
             <h2 class="title">界面设计</h2>
             <div class="card-content">
                 <div class="card-row">
-                    <Card :data="data[0]"></Card>
-                    <Card :data="data[1]"></Card>
-                    <Card :data="data[2]"></Card>
+                    <Card :data="data[0]" class="card"></Card>
+                    <Card :data="data[1]" class="card"></Card>
+                    <Card :data="data[2]" class="card"></Card>
                 </div>
                 <div class="card-row">
-                    <Card :data="data[3]"></Card>
-                    <Card :data="data[4]"></Card>
-                    <Card :data="data[5]"></Card>
+                    <Card :data="data[3]" class="card"></Card>
+                    <Card :data="data[4]" class="card"></Card>
+                    <Card :data="data[5]" class="card"></Card>
                 </div>
             </div>
 
@@ -40,8 +40,8 @@
             <h2 class="title">3D设计</h2>
             <div class="card-content" style="margin-bottom: 0;">
                 <div class="card-row">
-                    <Card :data="data[6]"></Card>
-                    <Card :data="data[7]"></Card>
+                    <Card :data="data[6]" class="card"></Card>
+                    <Card :data="data[7]" class="card"></Card>
                 </div>
             </div>
         </div>
@@ -64,7 +64,7 @@ let data1='1'
 // 首页卡片内容的数据
 const data = [
     {
-        type:'UI',
+        type:'#APP',
         title:'融e多',
         version:'0 - 3.8.0',
         intro:'这里是一段关于项目的简要介绍这里是一段关于项目的简要介绍这里是一段关于项目的简要介绍',
@@ -73,7 +73,7 @@ const data = [
         path:'../src/assets/img/cover/rongEDuo.png'
     },
     {
-        type:'UI',
+        type:'#APP',
         title:'易薪',
         version:'0 - 1.3.7',
         intro:'这里是一段关于项目的简要介绍这里是一段关于项目的简要介绍这里是一段关于项目的简要介绍',
@@ -82,7 +82,7 @@ const data = [
         path:'../src/assets/img/cover/yiXin.png'
     },
     {
-        type:'UI',
+        type:'#B端后台',
         title:'CRM客户管理系统',
         version:'1.0',
         intro:'这里是一段关于项目的简要介绍这里是一段关于项目的简要介绍这里是一段关于项目的简要介绍',
@@ -91,7 +91,7 @@ const data = [
         path:'../src/assets/img/cover/CRM.png'
     },
     {
-        type:'UI',
+        type:'#APP',
         title:'国美金融',
         version:'7.0.0',
         intro:'这里是一段关于项目的简要介绍这里是一段关于项目的简要介绍这里是一段关于项目的简要介绍',
@@ -100,7 +100,7 @@ const data = [
         path:'../src/assets/img/cover/guoMeiJinRong.png'
     },
     {
-        type:'UI',
+        type:'#B端店务管理',
         title:'美务通店务管理系统',
         version:'2.0.0',
         intro:'这里是一段关于项目的简要介绍这里是一段关于项目的简要介绍这里是一段关于项目的简要介绍',
@@ -214,15 +214,10 @@ function getTM() {
     .card-row {
         display: flex;
         gap: 28px;
-
+        .card{
+            flex:1
+        }
     }
-
-    /*     .card {
-        height: 370px;
-        background-color: aquamarine;
-        flex-grow: 1;
-        border-radius: 16px;
-    } */
 }
 
 
