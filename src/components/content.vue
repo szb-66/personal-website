@@ -30,19 +30,28 @@ while (i <= imgNumber) {
 </script>
 
 <style lang="less" scoped>
-.title {
-    font-size: 32px;
-    font-weight: 600;
-}
-
-.time {
-    margin-top: 12px;
-    color: #666;
-}
 
 .main {
     margin: 0 auto;
     padding: 100px 30px;
+    .title {
+        font-size: 32px;
+        font-weight: 600;
+    }
+    
+    .time {
+        margin-top: 12px;
+        color: #666;
+    }
+
+    .demo-image__lazy .el-image {
+      display: block;
+      min-height: 200px;
+      margin-bottom: 10px;
+    }
+    .demo-image__lazy .el-image:last-child {
+      margin-bottom: 0;
+    }
 }
 
 

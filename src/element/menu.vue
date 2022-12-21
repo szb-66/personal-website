@@ -4,12 +4,12 @@
             <!-- 左边 -->
             <div class="left">
                 <img src="../assets/img/head.png" alt="" style=" width: 32px;">
-                <router-link to="/home">首页</router-link>
-                <router-link to="/about">关于我</router-link>
+                <router-link to="/home" class="font">首页</router-link>
+                <router-link to="/about" class="font">关于我</router-link>
             </div>
             <!-- 右边 -->
             <div class="right">
-                <img src="../assets/img/yejianmoshi.png" alt="" style=" height: 24px;">
+                <img src="../assets/img/yejianmoshi.png" alt="" style=" height: 24px;" @click="open" class="kaiGuan">
                 <img src="../assets/img/GitHub.png" alt="" style=" width: 28px;">
             </div>
         </div>
@@ -18,19 +18,20 @@
 
 <script setup>
 import { ref, reactive } from "vue"
-import {useRoute} from 'vue-router';
+import { ElMessage } from 'element-plus'
+import { useRoute } from 'vue-router';
 const route = useRoute();
 // console.log(route.name)
 
 
 // 控制滚动变换透明度的功能
 let bgColor = reactive({ backgroundColor: `rgba(255, 255, 255, 0)`, borderBottom: `1px solid rgba(234, 234, 234, 1)` })
-if(route.name == 'home'){
+if (route.name == 'home') {
     // 启动时先运行一次
     getTM()
     // 根据事件监听再进行运行
     window.addEventListener('scroll', getTM)
-}else{
+} else {
     bgColor.backgroundColor = `rgba(255, 255, 255, 1)`
 }
 // 声明要要运行的函数
@@ -43,7 +44,6 @@ function getTM() {
     if (gun.value > h.value) {
         bgColor.backgroundColor = `rgba(255, 255, 255, 1)`
         bgColor.borderBottom = `1px solid rgba(234, 234, 234, 1)`
-
     }
     // 滚动距离小于屏幕高度，背景变透明
     else if (gun.value < h.value) {
@@ -53,6 +53,18 @@ function getTM() {
 
     }
 }
+
+// 黑夜模式提示弹窗
+const open = () => {
+    // ElMessage('功能还没有做')
+    ElMessage({
+    message: '功能还没有做',
+    type: 'warning',
+    duration:'2000',
+    offset:'7',
+  })
+}
+
 </script>
 
 
@@ -70,20 +82,30 @@ function getTM() {
         padding: 0 30px;
         line-height: 60px;
         margin: 0 auto;
+
+        .left {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+
+            .font:hover {
+                // color: rgba(22, 87, 255, 1);
+                font-weight: 600;
+            }
+        }
+
+        .right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            .kaiGuan:hover{
+                cursor: pointer;
+            }
+        }
     }
 
-    .left {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-    }
-
-    .right {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-    }
 }
+
 @media(min-width:0px) {
     .main {
         flex-grow: 1;
