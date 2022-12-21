@@ -13,7 +13,6 @@
 <script setup>
 // 点击到达页面特定位置
 function goTo() {
-    // document.documentElement.scrollTop = document.documentElement.clientHeight + 1
     document.getElementById("show").scrollIntoView({ behavior: 'smooth' });
 }
 

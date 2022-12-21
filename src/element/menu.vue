@@ -1,5 +1,5 @@
 <template>
-    <div class="header">
+    <div class="header" :style="bgColor">
         <div class="main">
             <!-- 左边 -->
             <div class="left">
@@ -17,13 +17,48 @@
 </template>
 
 <script setup>
+import { ref, reactive } from "vue"
+import {useRoute} from 'vue-router';
+const route = useRoute();
+// console.log(route.name)
 
+
+// 控制滚动变换透明度的功能
+let bgColor = reactive({ backgroundColor: `rgba(255, 255, 255, 0)`, borderBottom: `1px solid rgba(234, 234, 234, 1)` })
+if(route.name == 'home'){
+    // 启动时先运行一次
+    getTM()
+    // 根据事件监听再进行运行
+    window.addEventListener('scroll', getTM)
+}else{
+    bgColor.backgroundColor = `rgba(255, 255, 255, 1)`
+}
+// 声明要要运行的函数
+function getTM() {
+    // 视口高度
+    let h = ref(document.documentElement.clientHeight)
+    // 滚动距离
+    let gun = ref(document.documentElement.scrollTop)
+    // 滚动距离大于屏幕高度，背景变白色
+    if (gun.value > h.value) {
+        bgColor.backgroundColor = `rgba(255, 255, 255, 1)`
+        bgColor.borderBottom = `1px solid rgba(234, 234, 234, 1)`
+
+    }
+    // 滚动距离小于屏幕高度，背景变透明
+    else if (gun.value < h.value) {
+        let transparence = gun.value / h.value
+        bgColor.backgroundColor = `rgba(255, 255, 255, ${transparence})`
+        bgColor.borderBottom = `rgba(234, 234, 234, ${transparence})`
+
+    }
+}
 </script>
 
 
 <style lang="less" scoped>
 .header {
-    background-color: rgba(255, 255, 255, 1);
+    // background-color: rgba(255, 255, 255, 1);
     // border-bottom: 1px solid rgba(234, 234, 234, 1);
     width: 100%;
     position: fixed;
@@ -36,17 +71,28 @@
         line-height: 60px;
         margin: 0 auto;
     }
+
     .left {
         display: flex;
         align-items: center;
         gap: 20px;
     }
-    
+
     .right {
         display: flex;
         align-items: center;
         gap: 20px;
     }
 }
+@media(min-width:0px) {
+    .main {
+        flex-grow: 1;
+    }
+}
 
+@media(min-width:1440px) {
+    .main {
+        width: 1440px;
+    }
+}
 </style>
