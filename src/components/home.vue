@@ -3,7 +3,7 @@
     <div class="body">
         <Start></Start>
         <div class="main" id="show">
-            <h2 class="title">界面设计</h2>
+            <h2 class="title title1">界面设计</h2>
             <div class="card-content">
                 <div class="card-row">
                     <Card :data="data[0]"></Card>
@@ -17,13 +17,13 @@
                 </div>
             </div>
 
-            <h2 class="title">视觉插画</h2>
-            <div class="card-content">
-                <Card :data="data[0]"></Card>
-
+            <h2 class="title title2">视觉插画</h2>
+            <div class="visual-card">
+                <img src="../assets/img/cover/cover-visual-left.png" class="left">
+                <img src="../assets/img/cover/cover-visual-right.png">
             </div>
 
-            <h2 class="title">3D设计</h2>
+            <h2 class="title title3">3D设计</h2>
             <div class="card-content" style="margin-bottom: 0;">
                 <div class="card-row">
                     <Card :data="data[6]"></Card>
@@ -148,27 +148,66 @@ const data = [
 .main {
     margin: 0 auto;
     padding: 100px 30px;
-}
 
-.card-content {
-    display: flex;
-    flex-direction: column;
-    gap: 28px;
-    margin-bottom: 80px;
-
-    .card-row {
+    .card-content {
         display: flex;
+        flex-direction: column;
         gap: 28px;
+        margin-bottom: 80px;
 
+        .card-row {
+            display: flex;
+            gap: 28px;
+        }
+    }
+
+    .visual-card {
+        background-color: rgba(49, 102, 111, 1);
+        background-image: url('../assets/img/cover/cover-visual-bg.png');
+        display: flex;
+        padding: 0 100px;
+        border-radius: 20px;
+        height: 332px;
+        align-items: center;
+        overflow:hidden;
+        justify-content: space-between;
+
+        .left {
+            display: block;
+            height: 232px;
+            width: 517px;
+        }
+    }
+
+    .title {
+        margin-bottom: 40px;
+        line-height: 1em;
+        display: block;
+        height: 54px;
+        padding-left: 20px;
+        padding-top: 30px;
+        background-repeat: no-repeat
+    }
+
+    .title1 {
+        background-image: url('../assets/img/title-1.png');
+    }
+
+    .title2 {
+        background-image: url('../assets/img/title-2.png');
+    }
+
+    .title3 {
+        background-image: url('../assets/img/title-3.png');
     }
 }
 
 
 
 
-.title {
-    margin-bottom: 40px;
-}
+
+
+
 
 @media(min-width:0px) {
     .main {

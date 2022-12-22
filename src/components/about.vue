@@ -87,6 +87,7 @@
             </div>
         </div>
     </div>
+    <el-backtop :right="100" :bottom="100" />
     <Footer style="margin-top: 100px;"></Footer>
 </template>
 
