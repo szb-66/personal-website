@@ -92,8 +92,15 @@
 </template>
 
 <script setup>
-import Footer from '../element/footer.vue'
-import Menu from '../element/menu.vue'
+// import Footer from '../element/footer.vue'
+// import Menu from '../element/menu.vue'
+import { defineAsyncComponent } from 'vue'
+const Menu = defineAsyncComponent(() =>
+    import('../element/menu.vue')
+)
+const Footer = defineAsyncComponent(() =>
+    import('../element/footer.vue')
+)
 const msg = [
     { title: '电话/微信', content: '156-5945-6557' },
     { title: '邮箱', content: '1123051973@qq.com' },

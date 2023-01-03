@@ -10,7 +10,9 @@
             <!-- 右边 -->
             <div class="right">
                 <img src="../assets/img/yejianmoshi.png" alt="" style=" height: 24px;" @click="open" class="kaiGuan">
-                <img src="../assets/img/GitHub.png" alt="" style=" width: 28px;">
+                <a href="https://github.com/szb-66/personal-website" target="_blank" style="display: block;width: 28px;height: 28px;">
+                    <img src="../assets/img/GitHub.png" alt="" style=" width: 28px;">
+                </a>
             </div>
         </div>
     </div>

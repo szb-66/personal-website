@@ -1,6 +1,8 @@
 <template>
     <!-- 卡片 -->
-    <router-link :to="'/content/' + data.fileName +'/'+data.imgNumber" :class="cardClass" @mouseenter="Enter" @mouseleave="Leave">
+    <!-- 属性分别是设置传到路由的数据、浮动样式、跳转到新的页面 -->
+    <router-link :to="'/content/' + data.id" :class="cardClass"
+        @mouseenter="Enter" @mouseleave="Leave" target="_blank" meta.title="data.title">
         <!-- 封面 -->
         <div class="cover"><img :src=data.coverPath :style="imgStyle"></div>
         <!-- 文本区域 -->
@@ -43,7 +45,6 @@ function Enter() {
 function Leave() {
     imgStyle.value.maxWidth = '100%'
 }
-
 
 </script>
 

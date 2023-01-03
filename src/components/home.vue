@@ -41,18 +41,26 @@
 
 
 <script setup>
-import { ref, reactive } from "vue"
-import Footer from "../element/footer.vue"
-import Start from "../element/start.vue"
-import Card from "../element/card.vue"
-import Menu from "../element/menu.vue"
-
-let data1 = '1'
+import { defineAsyncComponent } from 'vue'
+const Footer = defineAsyncComponent(() =>
+    import('../element/footer.vue')
+)
+const Start = defineAsyncComponent(() =>
+    import('../element/start.vue')
+)
+const Card = defineAsyncComponent(() =>
+    import('../element/card.vue')
+)
+const Menu = defineAsyncComponent(() =>
+    import('../element/menu.vue')
+)
 
 // 首页卡片内容的数据
+// 记得跟内容页里面的数据保持一致
 const data = [
     {
         type: '#APP',
+        id:0,
         title: '融e多',
         version: '0 - 3.8.0',
         intro: '这里是一段关于项目的简要介绍这里是一段关于项目的简要介绍这里是一段关于项目的简要介绍',
@@ -65,6 +73,7 @@ const data = [
     },
     {
         type: '#APP',
+        id:1,
         title: '易薪',
         version: '0 - 1.3.7',
         intro: '这里是一段关于项目的简要介绍这里是一段关于项目的简要介绍这里是一段关于项目的简要介绍',
@@ -76,6 +85,7 @@ const data = [
     },
     {
         type: '#B端后台',
+        id:2,
         title: 'CRM客户管理系统',
         version: '1.0',
         intro: '这里是一段关于项目的简要介绍这里是一段关于项目的简要介绍这里是一段关于项目的简要介绍',
@@ -87,6 +97,7 @@ const data = [
     },
     {
         type: '#APP',
+        id:3,
         title: '国美金融',
         version: '7.0.0',
         intro: '这里是一段关于项目的简要介绍这里是一段关于项目的简要介绍这里是一段关于项目的简要介绍',
@@ -98,6 +109,7 @@ const data = [
     },
     {
         type: '#B端店务管理',
+        id:4,
         title: '美务通店务管理系统',
         version: '2.0.0',
         intro: '这里是一段关于项目的简要介绍这里是一段关于项目的简要介绍这里是一段关于项目的简要介绍',
@@ -109,6 +121,7 @@ const data = [
     },
     {
         type: 'UI',
+        id:5,
         title: '其他项目',
         version: false,
         intro: false,
@@ -120,6 +133,7 @@ const data = [
     },
     {
         type: '3D',
+        id:6,
         title: '流年千秋',
         version: false,
         intro: '这里是一段关于项目的简要介绍这里是一段关于项目的简要介绍这里是一段关于项目的简要介绍',
@@ -131,6 +145,7 @@ const data = [
     },
     {
         type: '3D',
+        id:7,
         title: '财鲸',
         version: false,
         intro: '这里是一段关于项目的简要介绍这里是一段关于项目的简要介绍这里是一段关于项目的简要介绍',
@@ -141,6 +156,14 @@ const data = [
         imgNumber: 50,
     },
 ]
+
+const emit = defineEmits(['on-click'])
+const clickTap = () => {
+  //派发事件。引号里面是上面定义的名字。list是要传递的数据，可以多个，用逗号隔开。
+    emit('on-click', data)
+}
+clickTap()
+
 </script>
 
 
@@ -169,7 +192,7 @@ const data = [
         border-radius: 20px;
         height: 332px;
         align-items: center;
-        overflow:hidden;
+        overflow: hidden;
         justify-content: space-between;
 
         .left {
@@ -201,13 +224,6 @@ const data = [
         background-image: url('../assets/img/title-3.png');
     }
 }
-
-
-
-
-
-
-
 
 @media(min-width:0px) {
     .main {
