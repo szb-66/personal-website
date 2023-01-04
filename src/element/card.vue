@@ -1,28 +1,28 @@
 <template>
     <!-- 卡片 -->
     <!-- 属性分别是设置传到路由的数据、浮动样式、跳转到新的页面 -->
-    <router-link :to="'/content/' + data.id" :class="cardClass"
-        @mouseenter="Enter" @mouseleave="Leave" target="_blank" meta.title="data.title">
+    <router-link :to="'/content/' + item.id" :class="cardClass"
+        @mouseenter="Enter" @mouseleave="Leave" target="_blank" meta.title="item.title">
         <!-- 封面 -->
-        <div class="cover"><img :src=data.coverPath :style="imgStyle"></div>
+        <div class="cover"><img :src=item.coverPath :style="imgStyle"></div>
         <!-- 文本区域 -->
         <div class="text-area">
             <!-- 标题区域 -->
             <div class="title-area">
                 <!-- 标题 -->
-                <span class="title">{{ data.title }}</span>
+                <span class="title">{{ item.title }}</span>
                 <!-- 版本 -->
-                <span class="version">{{ data.version }}</span>
+                <span class="version">{{ item.version }}</span>
             </div>
             <!-- 标签区域 -->
             <div class="tab-area">
                 <!-- 类型 -->
-                <span class="type">{{ data.type }}</span>
+                <span class="type">{{ item.type }}</span>
                 <!-- 时间 -->
-                <span class="time">{{ data.time }}</span>
+                <span class="time">{{ item.time }}</span>
             </div>
             <!-- 简介 -->
-            <div class="intro">{{ data.intro }}</div>
+            <div class="intro">{{ item.intro }}</div>
         </div>
     </router-link>
 </template>
@@ -30,10 +30,13 @@
 <script setup>
 import { reactive, ref } from 'vue';
 import { useRoute } from 'vue-router';
+import{data}from '../components/data.json'
 const route = useRoute();
 // 接收数据
-const props = defineProps(['data'])
-let data = props.data
+const props = defineProps(['id'])
+// const item = data[props.id]
+const item = data.find(v => v.id == props.id)
+// console.log(id);
 
 // 声明悬浮鼠标样式改变的类名
 let cardClass = ref("card")
