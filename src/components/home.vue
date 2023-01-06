@@ -1,19 +1,27 @@
 <template>
     <Menu></Menu>
     <div class="body">
-        <Start></Start>
+        <Suspense>
+            <template #default>
+                <Start></Start>
+            </template>
+            
+            <template #fallback>
+                <Loading></Loading>
+            </template>
+        </Suspense>
         <div class="main" id="show">
             <h2 class="title title1">界面设计</h2>
             <div class="card-content">
                 <div class="card-row">
-                    <Card :id = "0" ></Card>
-                    <Card :id = "1"></Card>
-                    <Card :id = "2"></Card>
+                    <Card :id="0"></Card>
+                    <Card :id="1"></Card>
+                    <Card :id="2"></Card>
                 </div>
                 <div class="card-row">
-                    <Card :id = "3"></Card>
-                    <Card :id = "4"></Card>
-                    <Card :id = "5"></Card>
+                    <Card :id="3"></Card>
+                    <Card :id="4"></Card>
+                    <Card :id="5"></Card>
                 </div>
             </div>
 
@@ -26,9 +34,9 @@
             <h2 class="title title3">3D设计</h2>
             <div class="card-content" style="margin-bottom: 0;">
                 <div class="card-row">
-                    <Card :id = "6"></Card>
-                    <Card :id = "7"></Card>
-                    <Card :id = "7"></Card>
+                    <Card :id="6"></Card>
+                    <Card :id="7"></Card>
+                    <Card :id="7"></Card>
                 </div>
             </div>
         </div>
@@ -54,6 +62,9 @@ const Card = defineAsyncComponent(() =>
 )
 const Menu = defineAsyncComponent(() =>
     import('../element/menu.vue')
+)
+const Loading = defineAsyncComponent(() =>
+    import('../element/loading.vue')
 )
 
 const emit = defineEmits(['on-click'])
