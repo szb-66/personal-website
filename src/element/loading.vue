@@ -24,9 +24,7 @@
 </script>
 
 <style lang="less" scoped>
-/* 定义变量 */
-// @light-color: #f4c042;
-// @dark-color: #7a5600;
+/* 定义颜色变量 */
 @light-color: #E5F1FA;
 @dark-color: #326F9D;
 

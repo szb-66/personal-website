@@ -1,15 +1,16 @@
 <template>
     <Menu></Menu>
     <div class="body">
+        <!-- 开屏页有loading动效 -->
         <Suspense>
             <template #default>
                 <Start></Start>
             </template>
-            
             <template #fallback>
                 <Loading></Loading>
             </template>
         </Suspense>
+        <cardList></cardList>
         <div class="main" id="show">
             <h2 class="title title1">界面设计</h2>
             <div class="card-content">
@@ -65,6 +66,9 @@ const Menu = defineAsyncComponent(() =>
 )
 const Loading = defineAsyncComponent(() =>
     import('../element/loading.vue')
+)
+const cardList = defineAsyncComponent(() =>
+    import('../element/cardList.vue')
 )
 
 const emit = defineEmits(['on-click'])
