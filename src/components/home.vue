@@ -10,7 +10,6 @@
                 <Loading></Loading>
             </template>
         </Suspense>
-        <Card ></Card>
         <!-- 主要内容 -->
         <div class="main" id="show">
             <h2 class="title title1">界面设计</h2>

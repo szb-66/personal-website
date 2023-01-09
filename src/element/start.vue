@@ -41,7 +41,7 @@ function goTo() {
         height: 50px;
         position: absolute;
         right: 50%;
-        margin-right: -12px;
+        margin-right: -25px;
         bottom: 10%;
         display: flex;
         justify-content: center;

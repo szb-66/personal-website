@@ -10,8 +10,12 @@
         <hr style="margin: 40px 0;border-color: rgba(234, 234, 234, 1);opacity:0.2">
         <!-- 内容区域 -->
         <div class="demo-image__lazy">
-            <el-image v-for="url in urls" :key="url" :src="url" lazy />
+            <!-- 导航 -->
+            <Dav></Dav>
+            <!-- 循环图片 -->
+            <el-image v-for="(url,index) in urls" :key="url" :src="url" :id="String(index)"/>
         </div>
+
     </div>
     <el-backtop :right="100" :bottom="100" />
 </template>
@@ -24,6 +28,9 @@ import { uiDesign } from '../data/uiDesign.json'
 import { threeD } from '../data/threeD.json'
 const Menu = defineAsyncComponent(() =>
     import('../element/menu.vue')
+)
+const Dav = defineAsyncComponent(() =>
+    import('../element/dav.vue')
 )
 
 // 获取路由实例
@@ -67,7 +74,13 @@ document.title = item.title
         margin-top: 12px;
         color: #666;
     }
-
+    .demo-image__lazy{
+        .dav{
+            position:fixed;
+            top: 200px;
+            left: 40px;
+        }
+    }
     .demo-image__lazy .el-image {
         display: block;
         min-height: 10px;

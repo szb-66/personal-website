@@ -3,13 +3,13 @@
         <div class="main">
             <!-- 左边 -->
             <div class="left">
-                <img src="../assets/img/head.png" alt="" style=" width: 32px;">
+                <img src="../assets/img/head.png" style=" width: 32px;">
                 <router-link to="/home" class="font">首页</router-link>
                 <router-link to="/about" class="font">关于我</router-link>
             </div>
             <!-- 右边 -->
             <div class="right">
-                <img src="../assets/img/yejianmoshi.png" alt="" style=" height: 24px;" @click="open" class="kaiGuan">
+                <img src="../assets/img/yejianmoshi.png" style=" height: 24px;" @click="open" class="kaiGuan">
                 <a href="https://github.com/szb-66/personal-website" target="_blank" class="Github"></a>
             </div>
         </div>
@@ -34,6 +34,7 @@ if (route.name == 'home') {
 } else {
     bgColor.backgroundColor = `rgba(255, 255, 255, 1)`
 }
+
 // 声明要要运行的函数
 function getTM() {
     // 视口高度
@@ -59,9 +60,10 @@ const open = () => {
     // ElMessage('功能还没有做')
     ElMessage({
         message: '功能还没有做',
-        type: 'warning',
-        duration: '2000',
-        offset: '7',
+        type: 'info',
+        duration: 2000,
+        // Message 距离窗口顶部的偏移量
+        offset: 80,
     })
 }
 
