@@ -1,11 +1,14 @@
 <template>
     <Menu></Menu>
     <div class="main">
+        <!-- 标题区域 -->
         <div class="title-area">
             <div class="title">{{ item.title }}</div>
             <div class="time">{{ item.time }}</div>
         </div>
+        <!-- 分割线 -->
         <hr style="margin: 40px 0;border-color: rgba(234, 234, 234, 1);opacity:0.2">
+        <!-- 内容区域 -->
         <div class="demo-image__lazy">
             <el-image v-for="url in urls" :key="url" :src="url" lazy />
         </div>
@@ -17,23 +20,35 @@
 // import Menu from "../element/menu.vue"
 import { useRoute } from 'vue-router';
 import { defineAsyncComponent, inject } from 'vue'
-import { data } from './data.json'
+import { uiDesign } from '../data/uiDesign.json'
+import { threeD } from '../data/threeD.json'
 const Menu = defineAsyncComponent(() =>
     import('../element/menu.vue')
 )
+
 // 获取路由实例
 const route = useRoute();
 
 // 通过路由传递的id，匹配数据中的对应对象
-const item = data.find(v => v.id == route.params.id)
+let item = []
+const threeDRule = /^3d/
+const uiRule = /^[0-9]*$/
+if (threeDRule.test(route.params.id)) {
+    item = threeD.find(v => v.id == route.params.id)
+}
+else if (uiRule.test(route.params.id)){
+    item = uiDesign.find(v => v.id == route.params.id)
+}
 
+// 图片地址
 const urls = []
 let i = 1
-
 while (i <= item.imgNumber) {
     urls.push(`../src/assets/img/content/${item.fileName}/${i}.png`)
     i++
 }
+
+// 修改页面名称
 document.title = item.title
 
 </script>
@@ -76,4 +91,5 @@ document.title = item.title
         width: 1000px;
     }
 }
+
 </style>

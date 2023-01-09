@@ -10,9 +10,7 @@
             <!-- 右边 -->
             <div class="right">
                 <img src="../assets/img/yejianmoshi.png" alt="" style=" height: 24px;" @click="open" class="kaiGuan">
-                <a href="https://github.com/szb-66/personal-website" target="_blank" style="display: block;width: 28px;height: 28px;">
-                    <img src="../assets/img/GitHub.png" alt="" style=" width: 28px;">
-                </a>
+                <a href="https://github.com/szb-66/personal-website" target="_blank" class="Github"></a>
             </div>
         </div>
     </div>
@@ -60,11 +58,11 @@ function getTM() {
 const open = () => {
     // ElMessage('功能还没有做')
     ElMessage({
-    message: '功能还没有做',
-    type: 'warning',
-    duration:'2000',
-    offset:'7',
-  })
+        message: '功能还没有做',
+        type: 'warning',
+        duration: '2000',
+        offset: '7',
+    })
 }
 
 </script>
@@ -100,8 +98,17 @@ const open = () => {
             display: flex;
             align-items: center;
             gap: 20px;
-            .kaiGuan:hover{
+
+            .kaiGuan:hover {
                 cursor: pointer;
+            }
+
+            .Github {
+                // display: block;
+                width: 28px;
+                height: 28px;
+                background-image: url('../assets/img/GitHub.png');
+                background-size:28px 28px;
             }
         }
     }

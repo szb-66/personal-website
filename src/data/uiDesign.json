@@ -1,5 +1,5 @@
 {
-    "data": [
+    "uiDesign": [
         {
             "type": "#APP",
             "id": 0,
@@ -70,30 +70,6 @@
             "recently_project": false,
             "coverPath": "../src/assets/img/cover/meiWuTong.png",
             "fileName": "2_meiWuTong",
-            "imgNumber": 50
-        },
-        {
-            "type": "3D",
-            "id": 6,
-            "title": "流年千秋",
-            "version": false,
-            "intro": "这里是一段关于项目的简要介绍这里是一段关于项目的简要介绍这里是一段关于项目的简要介绍",
-            "time": "2021-06",
-            "recently_project": false,
-            "coverPath": "../src/assets/img/cover/CRM.png",
-            "fileName": "2_meiWuTong",
-            "imgNumber": 50
-        },
-        {
-            "type": "3D",
-            "id": 7,
-            "title": "财鲸",
-            "version": false,
-            "intro": "这里是一段关于项目的简要介绍这里是一段关于项目的简要介绍这里是一段关于项目的简要介绍",
-            "time": "2022-01",
-            "recently_project": false,
-            "coverPath": "../src/assets/img/cover/CRM.png",
-            "fileName": "1_guoMeiJinRong",
             "imgNumber": 50
         }
     ]

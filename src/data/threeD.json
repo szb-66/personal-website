@@ -1,0 +1,40 @@
+{
+    "threeD": [
+        {
+            "type": "#APP",
+            "id": "3d0",
+            "title": "融e多",
+            "version": "0 - 3.8.0",
+            "intro": "这里是一段关于项目的简要介绍这里是一段关于项目的简要介绍这里是一段关于项目的简要介绍",
+            "time": "2022-03 至 今日",
+            "recently_project": true,
+            "coverPath": "../src/assets/img/cover/rongEDuo.png",
+            "fileName": "1_guoMeiJinRong",
+            "imgNumber": 50
+        },
+        {
+            "type": "#APP",
+            "id": "3d1",
+            "title": "易薪",
+            "version": "0 - 1.3.7",
+            "intro": "这里是一段关于项目的简要介绍这里是一段关于项目的简要介绍这里是一段关于项目的简要介绍",
+            "time": "2022-06 至 今日",
+            "recently_project": true,
+            "coverPath": "../src/assets/img/cover/yiXin.png",
+            "fileName": "1_guoMeiJinRong",
+            "imgNumber": 50
+        },
+        {
+            "type": "#B端后台",
+            "id": "3d2",
+            "title": "CRM客户管理系统",
+            "version": "1.0",
+            "intro": "这里是一段关于项目的简要介绍这里是一段关于项目的简要介绍这里是一段关于项目的简要介绍",
+            "time": "2022-04",
+            "recently_project": true,
+            "coverPath": "../src/assets/img/cover/CRM.png",
+            "fileName": "1_guoMeiJinRong",
+            "imgNumber": 50
+        }
+    ]
+}

@@ -10,21 +10,11 @@
                 <Loading></Loading>
             </template>
         </Suspense>
-        <cardList></cardList>
+        <Card ></Card>
+        <!-- 主要内容 -->
         <div class="main" id="show">
             <h2 class="title title1">界面设计</h2>
-            <div class="card-content">
-                <div class="card-row">
-                    <Card :id="0"></Card>
-                    <Card :id="1"></Card>
-                    <Card :id="2"></Card>
-                </div>
-                <div class="card-row">
-                    <Card :id="3"></Card>
-                    <Card :id="4"></Card>
-                    <Card :id="5"></Card>
-                </div>
-            </div>
+            <cardList :data="uiDesign"></cardList>
 
             <h2 class="title title2">视觉插画</h2>
             <div class="visual-card">
@@ -33,13 +23,7 @@
             </div>
 
             <h2 class="title title3">3D设计</h2>
-            <div class="card-content" style="margin-bottom: 0;">
-                <div class="card-row">
-                    <Card :id="6"></Card>
-                    <Card :id="7"></Card>
-                    <Card :id="7"></Card>
-                </div>
-            </div>
+            <cardList :data="threeD"></cardList>
         </div>
     </div>
     <Footer></Footer>
@@ -51,15 +35,14 @@
 
 <script setup>
 import { defineAsyncComponent } from 'vue'
-import { data } from './data.json'
+import { uiDesign } from '../data/uiDesign.json'
+import { threeD } from '../data/threeD.json'
+
 const Footer = defineAsyncComponent(() =>
     import('../element/footer.vue')
 )
 const Start = defineAsyncComponent(() =>
     import('../element/start.vue')
-)
-const Card = defineAsyncComponent(() =>
-    import('../element/card.vue')
 )
 const Menu = defineAsyncComponent(() =>
     import('../element/menu.vue')
@@ -70,13 +53,6 @@ const Loading = defineAsyncComponent(() =>
 const cardList = defineAsyncComponent(() =>
     import('../element/cardList.vue')
 )
-
-const emit = defineEmits(['on-click'])
-const clickTap = () => {
-    //派发事件。引号里面是上面定义的名字。list是要传递的数据，可以多个，用逗号隔开。
-    emit('on-click', data)
-}
-clickTap()
 
 </script>
 
@@ -133,6 +109,7 @@ clickTap()
 
     .title2 {
         background-image: url('../assets/img/title-2.png');
+        margin-top: 80px;
     }
 
     .title3 {

@@ -1,26 +1,23 @@
 <template>
-    <div class="cardList">
-        <div v-for="item in 6" class="box">{{ item }}</div>
-    </div>
+    <el-row :gutter="28">
+        <el-col  :xs="24" :sm="12" :md="8" v-for="item in props.data.length">
+            <Card :data="data[item-1]" class="box"></Card>
+        </el-col>
+    </el-row>
 </template>
 
 <script setup>
+import { defineAsyncComponent } from 'vue'
+const Card = defineAsyncComponent(() =>
+    import('./card.vue')
+)
+const props = defineProps(['data'])
 
 </script>
 
 <style lang="less" scoped>
-.cardList {
-    width: 100%;
-    text-align: center;
-    display: flex;
-    align-content: flex-start;
-    flex-flow: row wrap;
-    gap:20px;
-
-    .box {
-        flex:0 0 25%;
-        margin-bottom: 20px;
-        background-color: red;
-    }
+.box {
+    margin-bottom: 20px;
+    // background-color: red;
 }
 </style>

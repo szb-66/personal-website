@@ -1,28 +1,27 @@
 <template>
     <!-- 卡片 -->
     <!-- 属性分别是设置传到路由的数据、浮动样式、跳转到新的页面 -->
-    <router-link :to="'/content/' + item.id" :class="cardClass"
-        @mouseenter="Enter" @mouseleave="Leave" target="_blank" meta.title="item.title">
+    <router-link :to="'/content/' + props.data.id" class="card" @mouseenter="Enter" @mouseleave="Leave" target="_blank">
         <!-- 封面 -->
-        <div class="cover"><img :src=item.coverPath :style="imgStyle"></div>
+        <div class="cover"><img :src=props.data.coverPath :style="imgStyle"></div>
         <!-- 文本区域 -->
         <div class="text-area">
             <!-- 标题区域 -->
             <div class="title-area">
                 <!-- 标题 -->
-                <span class="title">{{ item.title }}</span>
+                <span class="title">{{ props.data.title }}</span>
                 <!-- 版本 -->
-                <span class="version">{{ item.version }}</span>
+                <span class="version">{{ props.data.version }}</span>
             </div>
             <!-- 标签区域 -->
             <div class="tab-area">
                 <!-- 类型 -->
-                <span class="type">{{ item.type }}</span>
+                <span class="type">{{ props.data.type }}</span>
                 <!-- 时间 -->
-                <span class="time">{{ item.time }}</span>
+                <span class="time">{{ props.data.time }}</span>
             </div>
             <!-- 简介 -->
-            <div class="intro">{{ item.intro }}</div>
+            <div class="intro">{{ props.data.intro }}</div>
         </div>
     </router-link>
 </template>
@@ -30,13 +29,9 @@
 <script setup>
 import { reactive, ref } from 'vue';
 import { useRoute } from 'vue-router';
-import{data}from '../components/data.json'
 const route = useRoute();
 // 接收数据
-const props = defineProps(['id'])
-// const item = data[props.id]
-const item = data.find(v => v.id == props.id)
-// console.log(id);
+const props = defineProps(['data'])
 
 // 声明悬浮鼠标样式改变的类名
 let cardClass = ref("card")
@@ -60,7 +55,10 @@ function Leave() {
     background-color: white;
     border-radius: 20px;
     padding: 20px;
-    flex: 1;
+    display: block;
+    // width: 100%;
+    // flex: 1;
+    // height: 100%;
 
     .cover {
         width: 100%;
@@ -95,6 +93,7 @@ function Leave() {
                 line-height: 24px;
                 font-weight: 600;
                 margin-bottom: 12px;
+                white-space: nowrap;
             }
 
             .version {
