@@ -11,7 +11,7 @@
         <!-- 内容区域 -->
         <div class="demo-image__lazy">
             <!-- 导航 -->
-            <Dav class="hidden-lg-and-down"></Dav>
+            <Dav class="davHidden"></Dav>
             <!-- 循环图片 -->
             <el-image v-for="(url,index) in urls" :key="url" :src="url" :id="String(index)"/>
         </div>
@@ -100,11 +100,20 @@ document.title = item.title
     .main {
         flex-grow: 1;
     }
+    .davHidden {
+        display: none;
+    }
 }
 
 @media(min-width:1000px) {
     .main {
         width: 1000px;
+    }
+}
+
+@media(min-width:1500px) {
+    .davHidden {
+        display: block;
     }
 }
 

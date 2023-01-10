@@ -67,6 +67,7 @@ const open = () => {
     })
 }
 
+
 </script>
 
 
@@ -110,7 +111,7 @@ const open = () => {
                 width: 28px;
                 height: 28px;
                 background-image: url('../assets/img/GitHub.png');
-                background-size:28px 28px;
+                background-size: 28px 28px;
             }
         }
     }
