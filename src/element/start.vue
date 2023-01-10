@@ -18,6 +18,8 @@ function goTo() {
 
 </script>
 
+
+
 <style lang="less" scoped>
 .start {
     background-image: url(../assets/img/start-bg.png);

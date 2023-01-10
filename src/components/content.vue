@@ -11,11 +11,10 @@
         <!-- 内容区域 -->
         <div class="demo-image__lazy">
             <!-- 导航 -->
-            <Dav></Dav>
+            <Dav class="hidden-lg-and-down"></Dav>
             <!-- 循环图片 -->
             <el-image v-for="(url,index) in urls" :key="url" :src="url" :id="String(index)"/>
         </div>
-
     </div>
     <el-backtop :right="100" :bottom="100" />
 </template>
@@ -23,9 +22,11 @@
 <script setup>
 // import Menu from "../element/menu.vue"
 import { useRoute } from 'vue-router';
-import { defineAsyncComponent, inject } from 'vue'
+import { defineAsyncComponent, inject, ref } from 'vue'
 import { uiDesign } from '../data/uiDesign.json'
 import { threeD } from '../data/threeD.json'
+import 'element-plus/theme-chalk/display.css'
+
 const Menu = defineAsyncComponent(() =>
     import('../element/menu.vue')
 )
@@ -57,6 +58,8 @@ while (i <= item.imgNumber) {
 
 // 修改页面名称
 document.title = item.title
+
+
 
 </script>
 
