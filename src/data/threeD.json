@@ -10,7 +10,25 @@
             "recently_project": true,
             "coverPath": "../src/assets/img/cover/rongEDuo.png",
             "fileName": "1_guoMeiJinRong",
-            "imgNumber": 50
+            "imgNumber": 50,
+            "nav": [
+                {
+                    "title": "前期准备",
+                    "page": "0"
+                },
+                {
+                    "title": "业务发展",
+                    "page": "5"
+                },
+                {
+                    "title": "体验升级",
+                    "page": "33"
+                },
+                {
+                    "title": "设计规范与品牌",
+                    "page": "41"
+                }
+            ]
         },
         {
             "type": "#APP",
@@ -22,7 +40,25 @@
             "recently_project": true,
             "coverPath": "../src/assets/img/cover/yiXin.png",
             "fileName": "1_guoMeiJinRong",
-            "imgNumber": 50
+            "imgNumber": 50,
+            "nav": [
+                {
+                    "title": "前期准备",
+                    "page": "0"
+                },
+                {
+                    "title": "业务发展",
+                    "page": "5"
+                },
+                {
+                    "title": "体验升级",
+                    "page": "33"
+                },
+                {
+                    "title": "设计规范与品牌",
+                    "page": "41"
+                }
+            ]
         },
         {
             "type": "#B端后台",
@@ -34,7 +70,25 @@
             "recently_project": true,
             "coverPath": "../src/assets/img/cover/CRM.png",
             "fileName": "1_guoMeiJinRong",
-            "imgNumber": 50
+            "imgNumber": 50,
+            "nav": [
+                {
+                    "title": "前期准备",
+                    "page": "0"
+                },
+                {
+                    "title": "业务发展",
+                    "page": "5"
+                },
+                {
+                    "title": "体验升级",
+                    "page": "33"
+                },
+                {
+                    "title": "设计规范与品牌",
+                    "page": "41"
+                }
+            ]
         }
     ]
 }

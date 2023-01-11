@@ -11,7 +11,7 @@
         <!-- 内容区域 -->
         <div class="demo-image__lazy">
             <!-- 导航 -->
-            <Dav class="davHidden"></Dav>
+            <Nav class="davHidden" :nav="item.nav"></Nav>
             <!-- 循环图片 -->
             <el-image v-for="(url,index) in urls" :key="url" :src="url" :id="String(index)"/>
         </div>
@@ -30,8 +30,8 @@ import 'element-plus/theme-chalk/display.css'
 const Menu = defineAsyncComponent(() =>
     import('../element/menu.vue')
 )
-const Dav = defineAsyncComponent(() =>
-    import('../element/dav.vue')
+const Nav = defineAsyncComponent(() =>
+    import('../element/nav.vue')
 )
 
 // 获取路由实例
@@ -47,7 +47,6 @@ if (threeDRule.test(route.params.id)) {
 else if (uiRule.test(route.params.id)){
     item = uiDesign.find(v => v.id == route.params.id)
 }
-
 // 图片地址
 const urls = []
 let i = 1
