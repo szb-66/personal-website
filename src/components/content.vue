@@ -14,9 +14,12 @@
             <Nav class="davHidden" :nav="item.nav"></Nav>
             <!-- 循环图片 -->
             <el-image v-for="(url,index) in urls" :key="url" :src="url" :id="String(index)"/>
+            <img src="../assets/img/content_end.png" style="width: 100%;">
         </div>
     </div>
+    <!-- 返回顶部 -->
     <el-backtop :right="100" :bottom="100" />
+    <Footer></Footer>
 </template>
 
 <script setup>
@@ -32,6 +35,9 @@ const Menu = defineAsyncComponent(() =>
 )
 const Nav = defineAsyncComponent(() =>
     import('../element/nav.vue')
+)
+const Footer = defineAsyncComponent(() =>
+    import('../element/footer.vue')
 )
 
 // 获取路由实例
