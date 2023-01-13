@@ -1,15 +1,7 @@
 <template>
     <Menu></Menu>
     <div class="body">
-        <!-- 开屏页有loading动效 -->
-        <Suspense>
-            <template #default>
-                <Start></Start>
-            </template>
-            <template #fallback>
-                <Loading></Loading>
-            </template>
-        </Suspense>
+        <Start></Start>
         <!-- 主要内容 -->
         <div class="main" id="show">
             <h2 class="title title1">界面设计</h2>
@@ -30,19 +22,18 @@
 
 
 
-
-
 <script setup>
-import { defineAsyncComponent } from 'vue'
+import { defineAsyncComponent, onMounted } from 'vue'
 import { uiDesign } from '../data/uiDesign.json'
 import { threeD } from '../data/threeD.json'
+import Start from '../element/start.vue'
 
 const Footer = defineAsyncComponent(() =>
     import('../element/footer.vue')
 )
-const Start = defineAsyncComponent(() =>
+/* const Start = defineAsyncComponent(() =>
     import('../element/start.vue')
-)
+) */
 const Menu = defineAsyncComponent(() =>
     import('../element/menu.vue')
 )
@@ -52,6 +43,9 @@ const Loading = defineAsyncComponent(() =>
 const cardList = defineAsyncComponent(() =>
     import('../element/cardList.vue')
 )
+window.addEventListener("DOMContentLoaded",function(){
+    alert(1)
+})
 
 </script>
 

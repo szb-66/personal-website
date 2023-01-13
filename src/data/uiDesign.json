@@ -152,23 +152,23 @@
             "recently_project": false,
             "coverPath": "../src/assets/img/cover/meiWuTong.png",
             "fileName": "2_meiWuTong",
-            "imgNumber": 50,
+            "imgNumber": 19,
             "nav": [
                 {
-                    "title": "零：前期准备",
+                    "title": "前期准备",
                     "page": "0"
                 },
                 {
-                    "title": "一：业务发展",
-                    "page": "5"
+                    "title": "页面框架调整",
+                    "page": "4"
                 },
                 {
-                    "title": "二：体验升级",
-                    "page": "33"
+                    "title": "系统垂类优化",
+                    "page": "11"
                 },
                 {
-                    "title": "三：设计规范与品牌",
-                    "page": "41"
+                    "title": "视觉升级",
+                    "page": "15"
                 }
             ]
         }

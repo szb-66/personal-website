@@ -13,8 +13,14 @@
             <!-- 导航 -->
             <Nav class="davHidden" :nav="item.nav"></Nav>
             <!-- 循环图片 -->
-            <el-image v-for="(url,index) in urls" :key="url" :src="url" :id="String(index)"/>
-            <img src="../assets/img/content_end.png" style="width: 100%;">
+            <el-image v-for="(url, index) in urls" :key="url" :src="url" :id="String(index)" class="el-image">
+                <!-- 占位 -->
+                <template #placeholder>
+                    <div class="image-slot">Loading<span class="dot">...</span></div>
+                </template>
+            </el-image>
+            <!-- 结束图片 -->
+            <img src="../assets/img/content_end.png" alt="内容图片加载失败" style="width: 100%;">
         </div>
     </div>
     <!-- 返回顶部 -->
@@ -50,7 +56,7 @@ const uiRule = /^[0-9]*$/
 if (threeDRule.test(route.params.id)) {
     item = threeD.find(v => v.id == route.params.id)
 }
-else if (uiRule.test(route.params.id)){
+else if (uiRule.test(route.params.id)) {
     item = uiDesign.find(v => v.id == route.params.id)
 }
 // 图片地址
@@ -82,29 +88,43 @@ document.title = item.title
         margin-top: 12px;
         color: #666;
     }
-    .demo-image__lazy{
-        .dav{
-            position:fixed;
+
+    .demo-image__lazy {
+        .davHidden {
+            position: fixed;
             top: 200px;
             left: 40px;
         }
-    }
-    .demo-image__lazy .el-image {
-        display: block;
-        min-height: 10px;
-        margin-bottom: 10px;
+
+        .image-slot {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            background: var(--el-fill-color-light);
+            color: var(--el-text-color-secondary);
+            font-size: 14px;
+        }
+
+        .dot {
+            animation: dot 2s infinite steps(3, start);
+            overflow: hidden;
+        }
     }
 
-    .demo-image__lazy .el-image:last-child {
-        margin-bottom: 0px;
-    }
+
+
 }
+
+
 
 
 @media(min-width:0px) {
     .main {
         flex-grow: 1;
     }
+
     .davHidden {
         display: none;
     }
@@ -121,5 +141,4 @@ document.title = item.title
         display: block;
     }
 }
-
 </style>

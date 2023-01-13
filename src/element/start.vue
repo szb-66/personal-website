@@ -11,10 +11,12 @@
 </template>
 
 <script setup>
+
 // 点击到达页面特定位置
 function goTo() {
     document.getElementById("show").scrollIntoView({ behavior: 'smooth' });
 }
+
 
 </script>
 

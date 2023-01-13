@@ -1,5 +1,5 @@
 <template>
-    <div class="dav">
+    <div class="nav">
         <div class="title">
             <img src="../assets/img/nav/navIcon.png" class="icon">
             <div>目录</div>
@@ -35,13 +35,21 @@ let nowPosition = 0
 // 标题位置数组
 let titleLine = []
 // 获取标题的元素距离顶部的位置
-for (let i = 0; i < data.length; i++) {
-    // 当前标题图片到父组件顶部的距离，减去80的顶部导航高度和一般的可视区域高度
-    let position = document.getElementById(data[i].page).parentNode.offsetTop - 80 - document.documentElement.clientHeight / 2
-    titleLine.push(position)
-}
+getImgPosition()
 // 检测滚动
-document.addEventListener('scroll', addClass)
+document.addEventListener('scroll', () => {
+    getImgPosition()
+    addClass()
+})
+function getImgPosition() {
+    // 清空内容
+    titleLine = []
+    for (let i = 0; i < data.length; i++) {
+        // 当前标题图片到父组件顶部的距离，减去80的顶部导航高度和一般的可视区域高度
+        let position = document.getElementById(data[i].page).parentNode.offsetTop - 80 - document.documentElement.clientHeight / 2
+        titleLine.push(position)
+    }
+}
 function addClass() {
     // 获取当前位置
     nowPosition = document.documentElement.scrollTop
@@ -53,7 +61,7 @@ function addClass() {
             let elements = document.getElementsByClassName(className)
             // 清除所有样式
             for (let index = 0; index < titleLine.length; index++) {
-                elements.item(index).classList = className
+                elements.item(index).classList.value = className
             }
             // 添加样式
             elements.item(x).classList.add("active")
@@ -71,7 +79,7 @@ setTimeout(() => {
 </script>
 
 <style lang="less" scoped>
-.dav {
+.nav {
     width: 200px;
     border-radius: 8px;
     border-right: 0;
@@ -90,6 +98,7 @@ setTimeout(() => {
     display: flex;
     gap: 8px;
     align-items: center;
+
     .circle {
         width: 6px;
         height: 6px;
