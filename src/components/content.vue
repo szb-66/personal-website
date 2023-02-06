@@ -4,16 +4,23 @@
         <!-- 标题区域 -->
         <div class="title-area">
             <div class="title">{{ item.title }}</div>
-            <div class="time">{{ item.time }}</div>
+            <div class="time-area">
+                <div class="time">项目时间：{{ item.time }}</div>
+                <div>{{ item.type }}</div>
+            </div>
+            <!-- 分割线 -->
+            <hr style="margin: 20px 0;border-color: rgba(234, 234, 234, 1);opacity:0.2">
+            <!-- 引号 -->
+            <img src="../assets/img/content_mark.svg">
+            <!-- 简介区域 -->
+            <div class="intro">{{ item.intro }}</div>
         </div>
-        <!-- 分割线 -->
-        <hr style="margin: 40px 0;border-color: rgba(234, 234, 234, 1);opacity:0.2">
         <!-- 内容区域 -->
         <div class="demo-image__lazy">
             <!-- 导航 -->
             <Nav class="davHidden" :nav="item.nav"></Nav>
             <!-- 循环图片 -->
-            <el-image v-for="(url, index) in urls" :key="url" :src="url" :id="String(index)" class="el-image">
+            <el-image v-for="(url, index) in urls" :key="url" :src="url" :id="String(index)">
                 <!-- 占位 -->
                 <template #placeholder>
                     <div class="image-slot">Loading<span class="dot">...</span></div>
@@ -24,12 +31,11 @@
         </div>
     </div>
     <!-- 返回顶部 -->
-    <el-backtop :right="100" :bottom="100" />
+    <el-backtop :right="40" :bottom="100" />
     <Footer></Footer>
 </template>
 
 <script setup>
-// import Menu from "../element/menu.vue"
 import { useRoute } from 'vue-router';
 import { defineAsyncComponent, inject, ref } from 'vue'
 import { uiDesign } from '../data/uiDesign.json'
@@ -79,17 +85,40 @@ document.title = item.title
     margin: 0 auto;
     padding: 100px 30px;
 
-    .title {
-        font-size: 32px;
-        font-weight: 600;
+    .title-area {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+
+        .title {
+            font-size: 32px;
+            font-weight: 600;
+        }
+
+        .time-area {
+            margin-top: 12px;
+            color: #666;
+            display: flex;
+            gap: 40px;
+        }
+
+        .intro {
+            background-color: #F8FBFF;
+            padding: 12px 8px;
+            margin-top: 12px;
+        }
     }
 
-    .time {
-        margin-top: 12px;
-        color: #666;
+    // 遍历图片的上下间距
+    .demo-image__lazy .el-image {
+        display: block;
+        // min-height: 200px;
+        margin-bottom: 20px;
     }
 
     .demo-image__lazy {
+        margin-top: 40px;
+
         .davHidden {
             position: fixed;
             top: 200px;

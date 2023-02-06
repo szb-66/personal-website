@@ -17,7 +17,7 @@ const props = defineProps(['data'])
 
 <style lang="less" scoped>
 .box {
-    margin-bottom: 20px;
+    margin-bottom: 24px;
     // background-color: red;
 }
 </style>

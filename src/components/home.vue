@@ -43,9 +43,6 @@ const Loading = defineAsyncComponent(() =>
 const cardList = defineAsyncComponent(() =>
     import('../element/cardList.vue')
 )
-window.addEventListener("DOMContentLoaded",function(){
-    alert(1)
-})
 
 </script>
 

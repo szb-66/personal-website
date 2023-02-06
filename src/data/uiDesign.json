@@ -59,26 +59,30 @@
         {
             "type": "#B端后台",
             "id": 2,
-            "title": "CRM客户管理系统",
+            "title": "融e多后台管理系统",
             "version": "1.0",
-            "intro": "这里是一段关于项目的简要介绍这里是一段关于项目的简要介绍这里是一段关于项目的简要介绍",
+            "intro": "这套后台系统与公司的c端产品融e多相配套，主要是用于查看分析数据、进行产品配置以及协助客服工作。",
             "time": "2022-04",
             "recently_project": true,
-            "coverPath": "../src/assets/img/cover/CRM.png",
-            "fileName": "1_guoMeiJinRong",
-            "imgNumber": 50,
+            "coverPath": "../src/assets/img/cover/rongEDuoHouTai.png",
+            "fileName": "3_rongEDuoHouTai",
+            "imgNumber": 20,
             "nav": [
                 {
                     "title": "前期准备",
                     "page": "0"
                 },
                 {
-                    "title": "业务发展",
-                    "page": "5"
+                    "title": "降低成本",
+                    "page": "7"
                 },
                 {
-                    "title": "体验升级",
-                    "page": "33"
+                    "title": "提高效率",
+                    "page": "12"
+                },
+                {
+                    "title": "部分页面展示",
+                    "page": "18"
                 }
             ]
         },
